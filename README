@@ -1,0 +1,52 @@
+ASIMIONESEI DANIEL 336CB 
+Tema 2 APD
+
+In implementarea temei am plecat de la scheletul oferit in arhiva temei.
+Penrtu fiecar task implementat am creeat o nou clasa in folderul intersections, 
+clasa care implememteaza interfata Intersection.In aceste clase mi-am definit
+variabile, semafoare si bariere.
+Pentru fiecare task, in clasa IntersectionFactory, creez cate o instanta pentru 
+fiecare tip de implementare de Intersection.
+Pentru fiecare task, in clasa ReaderHandlerFactory, fac get pe instanta corespunzatoare,
+citesc datele suplimentare din fisier daca este cazul, le convertesc la Integer,
+si instantiez semaforul sau lista de semafoare (tot aici le si aloc), bariera ciclica,
+dupa fiecare caz in parte (task).
+Logica taskuri:
+
+Task1:
+Fiecare masina asteapta un anumit numar de secunde, iar pentru asta foloesesc functia sleep().
+
+Task2:
+Folosesc un semafor pe care il instatiez la numarul maxim de masini care au voie sa intre
+in intersecte la un anumit moment.Fiecare thread/masina care ajunge in zona critica,
+da acquire la semafor (incrementeaza), daca poate.Fiecare thread/masina, asteapta un anumit numar de secunde,
+iar dupa da realeas la resursa (decrementeaza semaforul).
+
+
+Task3:
+Pentru acest task, ma foloesesc de o lista de semafoare, fiecare semafor din lista corespunde
+unei directii posibile de mers.Fiecare masina care vine pe o directie incearca sa faca acquire pe semaforul
+corespunzator acelei directii, daca poate.Cand o masina iese din giratoriu pe o diecrtie, da release
+la semafor.
+
+Task4:
+Pentru acest task imi initializez in main o bariera ciclica la numarul de masini, pentru a ma asigura
+ca toate masinile ajung la sensul giratoriu inainte sa se treaca mai departe.
+Scopul este de a bloca un număr specificat de thread-uri și de a le lăsa sa își continua execuția într-un
+mod sincron după ce toate au apelat metoda acesteia de resincronizare. 
+Mai folosesc o lista de semafoare pentru a ma asigura ca intra maxim x masini dintr-o directie in sensul
+giratoriu.
+Bariera ciclica este pentru a ma asigura ca toate masinile parasesc sensul giratoriu inainte
+ca o runda noua de masini sa porneasca.La final eliberez semaforul corespunzator directiei actuale.
+
+Task5:
+La acest task folosesc o lista de semafoare pentru fiecare directie, pe care le initializez la
+x.Fiecare masina sta in sensul giratoriu un numar de secunde, dupa care elibereaza resursa corespunzatoare
+directiei pe care a venit.
+
+Task10:
+Pentru acest task folosesc o bariera ciclica prin care astept ca toate masinile/thread-urile
+sa ajunga la calea ferata, si retin id-urile masinilor si directiile lor in
+doua variabile ArrayBlockingQueue, in ordinea in care au ajuns.Dupa ce trece trenul,
+masinile for fi afisate in ordinea in care au fost puse in coada.
+Cu ajutorul lui BlockingQueue, rezolv problema de concurenta.
